@@ -1,0 +1,488 @@
+{% extends 'base.html' %}
+
+{% block title %}Питание - FitWave AI{% endblock %}
+
+{% block extra_css %}
+<style>
+    .nutrition-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .nutrition-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .calorie-circle {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: conic-gradient(
+            var(--primary) 0deg,
+            var(--primary) calc(var(--progress) * 3.6deg),
+            var(--border) calc(var(--progress) * 3.6deg),
+            var(--border) 360deg
+        );
+        position: relative;
+    }
+
+    .calorie-circle::before {
+        content: '';
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background: var(--card);
+        border-radius: 50%;
+    }
+
+    .calorie-text {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .meal-item {
+        background: var(--input);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-left: 4px solid var(--primary);
+        transition: all 0.2s ease;
+    }
+
+    .meal-item:hover {
+        background: var(--card-hover);
+        transform: translateX(4px);
+    }
+
+    .food-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        transition: all 0.2s ease;
+    }
+
+    .food-item:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+    }
+
+    .macro-bar {
+        height: 8px;
+        background: var(--border);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 0.5rem;
+    }
+
+    .macro-fill {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
+
+    .macro-protein { background: var(--success); }
+    .macro-carbs { background: var(--warning); }
+    .macro-fats { background: var(--danger); }
+
+    .nutrition-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    .add-meal-btn {
+        background: var(--gradient-primary);
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .add-meal-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6);
+    }
+
+    .meal-modal .modal-content {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+    }
+
+    .meal-modal .modal-header {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .meal-modal .modal-footer {
+        border-top: 1px solid var(--border);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h2 mb-1">Дневник питания</h1>
+            <p class="text-muted mb-0">Отслеживайте калории и макронутриенты</p>
+        </div>
+        <div class="col-auto">
+            <div class="text-end">
+                <div class="small text-muted">Сегодня</div>
+                <div class="fw-bold">{{ "now"|date:"d.m.Y" }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calorie Summary -->
+    <div class="row mb-4">
+        <div class="col-lg-4">
+            <div class="nutrition-card text-center">
+                <div class="calorie-circle mx-auto mb-3" style="--progress: {{ progress_percent }}">
+                    <div class="calorie-text">
+                        <div class="h4 mb-0">{{ consumed_calories }}</div>
+                        <small class="text-muted">из {{ daily_calories }}</small>
+                    </div>
+                </div>
+                <h6>Калории</h6>
+                <p class="text-muted mb-0">Осталось: <strong>{{ remaining_calories }} ккал</strong></p>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="nutrition-stats">
+                <div class="stat-item">
+                    <div class="stat-value">45%</div>
+                    <div class="text-muted">Белки</div>
+                    <div class="macro-bar">
+                        <div class="macro-fill macro-protein" style="width: 45%;"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">35%</div>
+                    <div class="text-muted">Углеводы</div>
+                    <div class="macro-bar">
+                        <div class="macro-fill macro-carbs" style="width: 35%;"></div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">20%</div>
+                    <div class="text-muted">Жиры</div>
+                    <div class="macro-bar">
+                        <div class="macro-fill macro-fats" style="width: 20%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Today's Meals -->
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Сегодняшние приемы пищи</h5>
+                </div>
+                <div class="card-body">
+                    {% for meal in meals_today %}
+                    <div class="meal-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="mb-1">{{ meal.name }}</h6>
+                                <small class="text-muted">{{ meal.calories }} ккал</small>
+                            </div>
+                            <div class="text-end">
+                                <button class="btn btn-sm btn-outline-primary me-2" onclick="editMeal({{ forloop.counter0 }})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deleteMeal({{ forloop.counter0 }})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-utensils fa-3x text-muted mb-3"></i>
+                        <h6>Приемы пищи не добавлены</h6>
+                        <p class="text-muted">Начните отслеживать питание, добавив первый прием пищи</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMealModal">
+                            <i class="fas fa-plus me-2"></i>Добавить прием пищи
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Water Intake -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Потребление воды</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar" style="width: 60%;" id="waterProgress">
+                                    1.5л / 2.5л
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <button class="btn btn-outline-primary btn-sm" onclick="addWater()">
+                                <i class="fas fa-plus me-1"></i>250мл
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Рекомендуемые продукты</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        {% for food in recommended_foods %}
+                        <div class="col-12">
+                            <div class="food-item">
+                                <h6 class="mb-2">{{ food.name }}</h6>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <div class="small text-muted">Калории</div>
+                                        <div class="fw-bold">{{ food.calories }}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="small text-muted">Белок</div>
+                                        <div class="fw-bold">{{ food.protein }}г</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-primary mt-2 w-100" onclick="addToMeal('{{ food.name }}', {{ food.calories }})">
+                                    <i class="fas fa-plus me-1"></i>Добавить
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Статистика недели</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Средние калории</span>
+                            <strong>1,850</strong>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Дней с целью</span>
+                            <strong>5/7</strong>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Вода в день</span>
+                            <strong>2.2л</strong>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <small class="text-muted">Отличная работа! Продолжайте в том же духе</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Meal Button -->
+<button class="add-meal-btn" data-bs-toggle="modal" data-bs-target="#addMealModal">
+    <i class="fas fa-plus fa-lg text-white"></i>
+</button>
+
+<!-- Add Meal Modal -->
+<div class="modal fade meal-modal" id="addMealModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить прием пищи</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addMealForm">
+                    <div class="mb-3">
+                        <label class="form-label">Тип приема пищи</label>
+                        <select class="form-control" id="mealType" required>
+                            <option value="">Выберите</option>
+                            <option value="breakfast">Завтрак</option>
+                            <option value="lunch">Обед</option>
+                            <option value="dinner">Ужин</option>
+                            <option value="snack">Перекус</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Название блюда</label>
+                        <input type="text" class="form-control" id="foodName" placeholder="Например: Овсянка с ягодами" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label">Калории</label>
+                            <input type="number" class="form-control" id="calories" placeholder="350" required>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label">Порция (г)</label>
+                            <input type="number" class="form-control" id="portion" placeholder="150">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <label class="form-label">Белки (г)</label>
+                            <input type="number" class="form-control" id="protein" placeholder="15">
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label class="form-label">Углеводы (г)</label>
+                            <input type="number" class="form-control" id="carbs" placeholder="45">
+                        </div>
+                        <div class="col-4 mb-3">
+                            <label class="form-label">Жиры (г)</label>
+                            <input type="number" class="form-control" id="fats" placeholder="8">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-primary" onclick="saveMeal()">
+                    <i class="fas fa-save me-2"></i>Сохранить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let waterIntake = 1500; // ml
+    const waterGoal = 2500; // ml
+
+    // Add water intake
+    function addWater() {
+        waterIntake += 250;
+        updateWaterProgress();
+    }
+
+    function updateWaterProgress() {
+        const progress = Math.min((waterIntake / waterGoal) * 100, 100);
+        const progressBar = document.getElementById('waterProgress');
+        progressBar.style.width = progress + '%';
+        progressBar.textContent = `${(waterIntake / 1000).toFixed(1)}л / ${(waterGoal / 1000).toFixed(1)}л`;
+
+        if (progress >= 100) {
+            progressBar.classList.add('bg-success');
+        }
+    }
+
+    // Save meal
+    async function saveMeal() {
+        const formData = {
+            meal_type: document.getElementById('mealType').value,
+            food_name: document.getElementById('foodName').value,
+            calories: parseInt(document.getElementById('calories').value),
+            portion: parseInt(document.getElementById('portion').value) || 100,
+            protein: parseFloat(document.getElementById('protein').value) || 0,
+            carbs: parseFloat(document.getElementById('carbs').value) || 0,
+            fats: parseFloat(document.getElementById('fats').value) || 0
+        };
+
+        try {
+            const response = await axios.post('/api/nutrition/meals/', formData);
+            if (response.status === 201) {
+                // Close modal and reload page
+                const modal = bootstrap.Modal.getInstance(document.getElementById('addMealModal'));
+                modal.hide();
+                location.reload();
+            }
+        } catch (error) {
+            console.error('Error saving meal:', error);
+            alert('Ошибка при сохранении приема пищи');
+        }
+    }
+
+    // Add recommended food to meal
+    function addToMeal(name, calories) {
+        document.getElementById('foodName').value = name;
+        document.getElementById('calories').value = calories;
+
+        const modal = new bootstrap.Modal(document.getElementById('addMealModal'));
+        modal.show();
+    }
+
+    // Edit meal
+    function editMeal(index) {
+        console.log('Editing meal:', index);
+        // Implement edit functionality
+    }
+
+    // Delete meal
+    async function deleteMeal(index) {
+        if (confirm('Удалить этот прием пищи?')) {
+            try {
+                // Implement delete API call
+                location.reload();
+            } catch (error) {
+                console.error('Error deleting meal:', error);
+            }
+        }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        updateWaterProgress();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,1338 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\rapha\PycharmProjects\fitwave_project\fitwave_project\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 14988
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3511
+"GET /admin/login/ HTTP/1.1" 200 4339
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+"GET /static/admin/css/base.css HTTP/1.1" 200 22120
+"GET /static/admin/css/login.css HTTP/1.1" 200 951
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /admin/login/ HTTP/1.1" 200 4339
+"GET /admin/login/ HTTP/1.1" 200 4339
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 14988
+"GET /admin/login/ HTTP/1.1" 200 4339
+"POST /admin/login/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 15021
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 17537
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+Method Not Allowed (GET): /logout/
+"GET /logout/ HTTP/1.1" 405 0
+"GET / HTTP/1.1" 200 17537
+"GET /profile/ HTTP/1.1" 200 19996
+Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 147, in profile_view
+    return redirect('profile')
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'profile' not found. 'profile' is not a valid view function or pattern name.
+"POST /profile/ HTTP/1.1" 500 95786
+C:\Users\rapha\PycharmProjects\fitwave_project\fitwave_project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 18400
+"GET /api/ai/analysis/ HTTP/1.1" 200 28323
+"GET /api/ai/dashboard/ HTTP/1.1" 200 20693
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 14977
+"GET /signup/ HTTP/1.1" 200 16228
+"POST /signup/ HTTP/1.1" 302 0
+"GET /api/ai/dashboard/ HTTP/1.1" 200 21041
+"GET /api/ai/analysis/ HTTP/1.1" 200 28326
+Ошибка загрузки фото: a bytes-like object is required, not 'InMemoryUploadedFile'
+Internal Server Error: /api/ai/upload-photo/
+"POST /api/ai/upload-photo/ HTTP/1.1" 500 57
+Ошибка загрузки фото: a bytes-like object is required, not 'InMemoryUploadedFile'
+Internal Server Error: /api/ai/upload-photo/
+"POST /api/ai/upload-photo/ HTTP/1.1" 500 57
+Ошибка загрузки фото: a bytes-like object is required, not 'InMemoryUploadedFile'
+Internal Server Error: /api/ai/upload-photo/
+"POST /api/ai/upload-photo/ HTTP/1.1" 500 57
+"GET /api/ai/dashboard/ HTTP/1.1" 200 20692
+Internal Server Error: /api/ai/analysis/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\ai_analysis\views.py", line 575, in analysis_view
+    return render(request, 'ai_analysis/analysis.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+"GET /api/ai/analysis/ HTTP/1.1" 500 206638
+"GET / HTTP/1.1" 200 18044
+C:\Users\rapha\PycharmProjects\fitwave_project\ai_analysis\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 18044
+Internal Server Error: /api/ai/analysis/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    raise TypeError
+TypeError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\ai_analysis\views.py", line 564, in analysis_view
+    return render(request, 'ai_analysis/analysis.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 1075, in render
+    output = self.filter_expression.resolve(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 901, in _resolve_lookup
+    current = getattr(current, bit)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\fields\files.py", line 69, in url
+    self._require_file()
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\fields\files.py", line 44, in _require_file
+    raise ValueError(
+ValueError: The 'image' attribute has no file associated with it.
+"GET /api/ai/analysis/ HTTP/1.1" 500 206621
+C:\Users\rapha\PycharmProjects\fitwave_project\fitwave_project\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /api/ai/analysis/ HTTP/1.1" 302 0
+"GET /login/?next=/api/ai/analysis/ HTTP/1.1" 200 11487
+"GET / HTTP/1.1" 200 18044
+"GET /api/ai/analysis/ HTTP/1.1" 200 28122
+"POST /api/ai/upload-photo/ HTTP/1.1" 200 156
+"GET /api/ai/analysis/ HTTP/1.1" 200 28162
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 200 5202
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 155
+"GET /api/ai/analysis/ HTTP/1.1" 200 28209
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_3.jpg HTTP/1.1" 200 54572
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 153
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_3.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 200 14435
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 774
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 18044
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 731
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+"GET /api/ai/dashboard/ HTTP/1.1" 200 23461
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_3.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 304 0
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET /api/ai/dashboard/ HTTP/1.1" 200 23461
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET / HTTP/1.1" 200 18044
+"GET /profile/ HTTP/1.1" 200 20533
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET /api/ai/dashboard/ HTTP/1.1" 200 23461
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 731
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+"GET /api/ai/dashboard/ HTTP/1.1" 200 24405
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 14977
+"GET /login/ HTTP/1.1" 200 11487
+"POST /login/ HTTP/1.1" 200 12030
+"POST /login/ HTTP/1.1" 302 0
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: dashboard.html
+"GET /dashboard/ HTTP/1.1" 500 84154
+"GET /login/ HTTP/1.1" 200 13397
+"GET /signup/ HTTP/1.1" 200 18138
+"GET / HTTP/1.1" 200 14977
+Watching for file changes with StatReloader
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET / HTTP/1.1" 200 18044
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3998
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_3.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 18044
+"GET /api/ai/analysis/ HTTP/1.1" 200 28404
+"GET /api/ai/dashboard/ HTTP/1.1" 200 24405
+"GET /profile/ HTTP/1.1" 200 20533
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 14977
+"GET /login/ HTTP/1.1" 200 11487
+"POST /login/ HTTP/1.1" 302 0
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: dashboard.html
+"GET /dashboard/ HTTP/1.1" 500 84154
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 33736
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4340
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 29034
+"GET /signup/ HTTP/1.1" 200 23673
+"POST /signup/ HTTP/1.1" 200 24530
+"POST /signup/ HTTP/1.1" 302 0
+"GET /login/ HTTP/1.1" 200 19401
+"POST /login/ HTTP/1.1" 302 0
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 57, in dashboard_view
+    return render(request, 'dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: dashboard.html
+"GET /dashboard/ HTTP/1.1" 500 92660
+Watching for file changes with StatReloader
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 57, in dashboard_view
+    return render(request, 'dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: dashboard.html
+"GET /dashboard/ HTTP/1.1" 500 92660
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 32234
+Internal Server Error: /nutrition/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 90, in nutrition_view
+    return render(request, 'nutrition.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 705, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 615, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'mul'
+"GET /nutrition/ HTTP/1.1" 500 225438
+"GET /nutrition/ HTTP/1.1" 302 0
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+Watching for file changes with StatReloader
+"GET /nutrition/ HTTP/1.1" 302 0
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET /nutrition/ HTTP/1.1" 200 40183
+Bad Request: /api/nutrition/meals/
+"POST /api/nutrition/meals/ HTTP/1.1" 400 298
+Bad Request: /api/nutrition/meals/
+"POST /api/nutrition/meals/ HTTP/1.1" 400 205
+"GET /nutrition/ HTTP/1.1" 200 40183
+"GET /nutrition/ HTTP/1.1" 200 40183
+"GET /nutrition/ HTTP/1.1" 200 40183
+"GET /api/ai/analysis/ HTTP/1.1" 200 36233
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/19/photo_2025-09-19_14-48-50_3.jpg HTTP/1.1" 304 0
+"GET /dashboard/ HTTP/1.1" 200 32234
+"GET /api/ai/analysis/ HTTP/1.1" 200 36233
+"POST /api/ai/upload-photo/ HTTP/1.1" 200 154
+"GET /api/ai/analysis/ HTTP/1.1" 200 36231
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 200 162
+"GET /api/ai/analysis/ HTTP/1.1" 200 36237
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_biAvIOk.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 200 156
+"GET /api/ai/analysis/ HTTP/1.1" 200 36239
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_biAvIOk.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2.jpg HTTP/1.1" 200 212344
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 742
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+Internal Server Error: /api/ai/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\ai_analysis\views.py", line 618, in dashboard_view
+    return render(request, 'ai_analysis/../templates/dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: ai_analysis/../templates/dashboard.html
+"GET /api/ai/dashboard/ HTTP/1.1" 500 93000
+"GET /dashboard/ HTTP/1.1" 200 34238
+"GET / HTTP/1.1" 200 33736
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 29034
+"GET /signup/ HTTP/1.1" 200 23673
+"GET /login/ HTTP/1.1" 200 18932
+"POST /login/ HTTP/1.1" 200 19475
+"GET /login/ HTTP/1.1" 200 18932
+"GET /login/ HTTP/1.1" 200 18932
+"POST /login/ HTTP/1.1" 200 19475
+"GET /login/ HTTP/1.1" 200 18932
+"GET /login/ HTTP/1.1" 200 18932
+"GET / HTTP/1.1" 200 29034
+"GET /signup/ HTTP/1.1" 200 23673
+"POST /signup/ HTTP/1.1" 200 24133
+"GET /signup/ HTTP/1.1" 200 23673
+"POST /signup/ HTTP/1.1" 200 24121
+"GET /signup/ HTTP/1.1" 200 23673
+"POST /signup/ HTTP/1.1" 302 0
+"GET /login/ HTTP/1.1" 200 19401
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 28530
+"GET /api/ai/analysis/ HTTP/1.1" 200 35952
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 161
+"GET /api/ai/analysis/ HTTP/1.1" 200 35998
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_DAP1Grp.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 161
+"GET /api/ai/analysis/ HTTP/1.1" 200 36051
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_DAP1Grp.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_YNwuzJL.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 163
+"GET /api/ai/analysis/ HTTP/1.1" 200 36256
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_YNwuzJL.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_DAP1Grp.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_RlzZJcy.jpg HTTP/1.1" 200 212344
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 750
+Ошибка анализа состава тела: unsupported operand type(s) for *: 'float' and 'NoneType'
+Internal Server Error: /api/ai/analyze-body/
+"POST /api/ai/analyze-body/ HTTP/1.1" 500 70
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 750
+Ошибка анализа состава тела: unsupported operand type(s) for *: 'float' and 'NoneType'
+Internal Server Error: /api/ai/analyze-body/
+"POST /api/ai/analyze-body/ HTTP/1.1" 500 70
+Watching for file changes with StatReloader
+"GET /nutrition/ HTTP/1.1" 302 0
+"GET /login/?next=/nutrition/ HTTP/1.1" 200 18932
+"GET / HTTP/1.1" 200 33740
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4340
+Internal Server Error: /profile/profile/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 233, in profile_view
+    return render(request, 'profile.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: profile.html
+"GET /profile/profile/ HTTP/1.1" 500 90280
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 29034
+"GET /login/ HTTP/1.1" 200 18932
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 34238
+Internal Server Error: /profile/profile/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 233, in profile_view
+    return render(request, 'profile.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: profile.html
+"GET /profile/profile/ HTTP/1.1" 500 90277
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 33737
+"GET /accounts/profile/ HTTP/1.1" 200 28363
+"GET /api/ai/analysis/ HTTP/1.1" 200 36240
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_biAvIOk.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2.jpg HTTP/1.1" 304 0
+Internal Server Error: /api/ai/dashboard/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\ai_analysis\views.py", line 618, in dashboard_view
+    return render(request, 'ai_analysis/../templates/dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: ai_analysis/../templates/dashboard.html
+"GET /api/ai/dashboard/ HTTP/1.1" 500 93000
+"GET /api/ai/analysis/ HTTP/1.1" 302 0
+"GET /login/?next=/api/ai/analysis/ HTTP/1.1" 200 18932
+"GET /login/?next=/api/ai/analysis/ HTTP/1.1" 200 18932
+"GET /login/?next=/api/ai/analysis/ HTTP/1.1" 200 18932
+"GET /login/?next=/api/ai/analysis/ HTTP/1.1" 200 18932
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 34937
+"GET /api/ai/analysis/ HTTP/1.1" 302 0
+"GET /login/?next=/api/ai/analysis/ HTTP/1.1" 200 18932
+"GET /settings/ HTTP/1.1" 200 46428
+"GET /accounts/profile/ HTTP/1.1" 200 28363
+"GET /api/ai/analysis/ HTTP/1.1" 200 36241
+"GET /dashboard/ HTTP/1.1" 200 34937
+"GET /api/ai/analysis/ HTTP/1.1" 200 36241
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 742
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+"GET /nutrition/ HTTP/1.1" 200 40186
+"GET /dashboard/ HTTP/1.1" 200 35892
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 38059
+"GET /workouts/ HTTP/1.1" 200 22248
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /workouts/ HTTP/1.1" 200 22248
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /api/ai/analysis/ HTTP/1.1" 200 38408
+"GET /dashboard/ HTTP/1.1" 200 38059
+"GET /settings/ HTTP/1.1" 200 48595
+"GET /workouts/ HTTP/1.1" 200 22248
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /api/ai/analysis/ HTTP/1.1" 200 38408
+"GET /dashboard/ HTTP/1.1" 200 38059
+"GET / HTTP/1.1" 200 35904
+"GET /workouts/ HTTP/1.1" 200 22248
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /nutrition/ HTTP/1.1" 200 42353
+"GET /nutrition/ HTTP/1.1" 200 42353
+Watching for file changes with StatReloader
+"GET /workouts/ HTTP/1.1" 302 0
+"GET /login/?next=/workouts/ HTTP/1.1" 200 21185
+Internal Server Error: /workouts/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 312, in workouts_view
+    return render(request, 'workouts.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader_tags.py", line 228, in do_block
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+"GET /workouts/ HTTP/1.1" 500 239737
+Watching for file changes with StatReloader
+"GET /workouts/ HTTP/1.1" 200 29476
+"GET /workouts/ HTTP/1.1" 302 0
+"GET /login/?next=/workouts/ HTTP/1.1" 200 21240
+"GET /settings/ HTTP/1.1" 200 48745
+"GET /accounts/profile/ HTTP/1.1" 200 30680
+"GET /dashboard/ HTTP/1.1" 200 38209
+"GET /dashboard/ HTTP/1.1" 200 38209
+"GET /api/ai/analysis/ HTTP/1.1" 200 38558
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 742
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+"GET /dashboard/ HTTP/1.1" 200 38211
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 38184
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 38184
+"GET /dashboard/ HTTP/1.1" 200 38184
+"GET /dashboard/ HTTP/1.1" 200 38184
+Watching for file changes with StatReloader
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+"GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 4455
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 302 0
+"GET /login/?next=/dashboard/ HTTP/1.1" 200 21937
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 39811
+"GET /dashboard/ HTTP/1.1" 302 0
+"GET /login/?next=/dashboard/ HTTP/1.1" 200 21937
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 39087
+Watching for file changes with StatReloader
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 31342
+"GET /signup/ HTTP/1.1" 200 25981
+"GET /login/ HTTP/1.1" 200 21240
+"GET /signup/ HTTP/1.1" 200 25981
+"GET /login/ HTTP/1.1" 200 21240
+Watching for file changes with StatReloader
+"GET /login/ HTTP/1.1" 200 23102
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40976
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 33204
+"GET /login/ HTTP/1.1" 200 23102
+"GET /signup/ HTTP/1.1" 200 27843
+"GET /login/ HTTP/1.1" 200 23102
+"GET / HTTP/1.1" 200 33204
+"GET /signup/ HTTP/1.1" 200 27843
+"GET /login/ HTTP/1.1" 200 23102
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40976
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 40976
+"GET /workouts/ HTTP/1.1" 200 33208
+"GET /accounts/profile/ HTTP/1.1" 200 32542
+"GET /dashboard/ HTTP/1.1" 200 40976
+"GET /api/ai/analysis/ HTTP/1.1" 200 40420
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 742
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+"GET /dashboard/ HTTP/1.1" 200 40978
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 33204
+"GET /signup/ HTTP/1.1" 200 27843
+"POST /signup/ HTTP/1.1" 302 0
+"GET /login/ HTTP/1.1" 200 23571
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 38333
+"GET /api/ai/analysis/ HTTP/1.1" 200 40133
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 161
+"GET /api/ai/analysis/ HTTP/1.1" 200 40179
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 161
+"GET /api/ai/analysis/ HTTP/1.1" 200 40232
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_79AnmZM.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 163
+"GET /api/ai/analysis/ HTTP/1.1" 200 40437
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_79AnmZM.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_KZq1GHo.jpg HTTP/1.1" 200 212344
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 751
+Ошибка анализа состава тела: unsupported operand type(s) for *: 'float' and 'NoneType'
+Internal Server Error: /api/ai/analyze-body/
+"POST /api/ai/analyze-body/ HTTP/1.1" 500 70
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 751
+Ошибка анализа состава тела: unsupported operand type(s) for *: 'float' and 'NoneType'
+Internal Server Error: /api/ai/analyze-body/
+"POST /api/ai/analyze-body/ HTTP/1.1" 500 70
+"GET /api/ai/analysis/ HTTP/1.1" 200 40437
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_KZq1GHo.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_79AnmZM.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 751
+Ошибка анализа состава тела: unsupported operand type(s) for *: 'float' and 'NoneType'
+Internal Server Error: /api/ai/analyze-body/
+"POST /api/ai/analyze-body/ HTTP/1.1" 500 70
+"GET /accounts/profile/ HTTP/1.1" 200 32522
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32973
+"GET /accounts/profile/ HTTP/1.1" 200 32543
+"GET /settings/ HTTP/1.1" 200 50590
+"GET /api/ai/analysis/ HTTP/1.1" 200 40441
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_79AnmZM.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_KZq1GHo.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 751
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 205
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 846
+"GET /accounts/profile/ HTTP/1.1" 200 32543
+"GET /settings/ HTTP/1.1" 200 50590
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 51020
+"GET /accounts/profile/ HTTP/1.1" 200 32543
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32977
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32988
+Watching for file changes with StatReloader
+Internal Server Error: /accounts/profile/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 333, in profile_view
+    return render(request, 'accounts/profile.html', context)
+                                                    ^^^^^^^
+NameError: name 'context' is not defined
+"GET /accounts/profile/ HTTP/1.1" 500 73543
+Internal Server Error: /accounts/profile/
+Traceback (most recent call last):
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py", line 333, in profile_view
+    return render(request, 'accounts/profile.html', context)
+                                                    ^^^^^^^
+NameError: name 'context' is not defined
+"GET /accounts/profile/ HTTP/1.1" 500 73543
+Watching for file changes with StatReloader
+"GET /accounts/profile/ HTTP/1.1" 200 32558
+"GET /accounts/profile/ HTTP/1.1" 302 0
+"GET /login/?next=/accounts/profile/ HTTP/1.1" 200 23102
+"GET /login/?next=/accounts/profile/ HTTP/1.1" 200 23102
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/profile/ HTTP/1.1" 200 32558
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32988
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /accounts/profile/ HTTP/1.1" 200 32558
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32986
+"GET /accounts/profile/ HTTP/1.1" 200 32556
+"GET /api/ai/analysis/ HTTP/1.1" 200 40441
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_79AnmZM.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_KZq1GHo.jpg HTTP/1.1" 304 0
+"GET /dashboard/ HTTP/1.1" 200 40988
+"GET /settings/ HTTP/1.1" 200 50599
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 51037
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 51020
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 51035
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 51038
+"GET / HTTP/1.1" 200 33204
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login/?next=/accounts/profile/ HTTP/1.1" 200 22990
+"GET /settings/ HTTP/1.1" 302 0
+"GET /login/?next=/settings/ HTTP/1.1" 200 22990
+"GET /settings/ HTTP/1.1" 200 53753
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 54176
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 54181
+"GET /accounts/profile/ HTTP/1.1" 200 32204
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32634
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32634
+"POST /accounts/profile/ HTTP/1.1" 302 0
+"GET /accounts/profile/ HTTP/1.1" 200 32633
+"GET /workouts/ HTTP/1.1" 200 33101
+"GET /nutrition/ HTTP/1.1" 200 44257
+Bad Request: /api/nutrition/meals/
+"POST /api/nutrition/meals/ HTTP/1.1" 400 298
+Bad Request: /api/nutrition/meals/
+"POST /api/nutrition/meals/ HTTP/1.1" 400 205
+"GET /nutrition/ HTTP/1.1" 200 44257
+"GET /nutrition/ HTTP/1.1" 200 44257
+"GET /api/ai/analysis/ HTTP/1.1" 200 40329
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_4eXwW5z.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_79AnmZM.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_KZq1GHo.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 751
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 201
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 825
+"GET /dashboard/ HTTP/1.1" 200 40880
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 33092
+"GET /login/ HTTP/1.1" 200 22990
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40866
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 33092
+"GET /login/ HTTP/1.1" 200 22990
+"POST /login/ HTTP/1.1" 200 23533
+"POST /login/ HTTP/1.1" 200 23533
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 38221
+"GET /api/ai/analysis/ HTTP/1.1" 200 40021
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 162
+"GET /api/ai/analysis/ HTTP/1.1" 200 40067
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_45cVeEi.jpg HTTP/1.1" 200 101186
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 154
+"GET /api/ai/analysis/ HTTP/1.1" 200 40112
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_45cVeEi.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 200 14435
+"POST /api/ai/upload-photo/ HTTP/1.1" 201 164
+"GET /api/ai/analysis/ HTTP/1.1" 200 40317
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_45cVeEi.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_lUgevoH.jpg HTTP/1.1" 200 212344
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 745
+Ошибка анализа состава тела: unsupported operand type(s) for *: 'float' and 'NoneType'
+Internal Server Error: /api/ai/analyze-body/
+"POST /api/ai/analyze-body/ HTTP/1.1" 500 70
+"GET /settings/ HTTP/1.1" 200 53747
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 54195
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 54195
+"GET /accounts/profile/ HTTP/1.1" 200 32202
+"GET /api/ai/analysis/ HTTP/1.1" 200 40321
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_45cVeEi.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_lUgevoH.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 745
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 206
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 847
+"GET /dashboard/ HTTP/1.1" 200 39962
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 39962
+"GET /api/ai/analysis/ HTTP/1.1" 200 40321
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2_lUgevoH.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_45cVeEi.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 745
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 206
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 847
+"GET /dashboard/ HTTP/1.1" 200 40907
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET //admin/ HTTP/1.1" 302 0
+"GET /admin/login/?next=/admin/ HTTP/1.1" 200 3939
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/login.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+"GET /admin/ HTTP/1.1" 200 15021
+"GET /admin/ai_analysis/airecommendation/ HTTP/1.1" 200 42235
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/img/search.svg HTTP/1.1" 200 458
+"GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+"GET /admin/ai_analysis/bodycompositionanalysis/ HTTP/1.1" 200 25611
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/photoupload/ HTTP/1.1" 200 26202
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/postureanalysis/ HTTP/1.1" 200 28757
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/progresstracking/ HTTP/1.1" 200 16044
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/workoutrecommendation/ HTTP/1.1" 200 27068
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/accounts/userprofile/ HTTP/1.1" 200 21897
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/ HTTP/1.1" 200 42235
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/30/change/ HTTP/1.1" 200 29952
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+"GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+"GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+"GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+"GET /admin/ai_analysis/airecommendation/ HTTP/1.1" 200 42235
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/add/ HTTP/1.1" 200 29273
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/ HTTP/1.1" 200 42235
+"GET /admin/ai_analysis/airecommendation/?category__exact=recovery HTTP/1.1" 200 18754
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/?category__exact=lifestyle HTTP/1.1" 200 18770
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/?category__exact=posture HTTP/1.1" 200 44572
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/?category__exact=exercise HTTP/1.1" 200 18754
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/?category__exact=nutrition HTTP/1.1" 200 18770
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/?category__exact=exercise HTTP/1.1" 200 18754
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/?category__exact=posture HTTP/1.1" 200 44572
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /admin/ai_analysis/airecommendation/? HTTP/1.1" 200 42235
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET / HTTP/1.1" 200 37804
+"GET / HTTP/1.1" 200 37804
+"GET /admin/ai_analysis/airecommendation/30/change/ HTTP/1.1" 200 29952
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37804
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4344
+"GET /api/ai/analysis/ HTTP/1.1" 200 40017
+"POST /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 33092
+"GET /login/ HTTP/1.1" 200 22990
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40866
+"GET /api/ai/analysis/ HTTP/1.1" 200 40308
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_biAvIOk.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-20_01-16-07_2.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 743
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 206
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 826
+"GET /dashboard/ HTTP/1.1" 200 40866
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /accounts/profile/ HTTP/1.1" 200 32199
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /api/ai/analysis/ HTTP/1.1" 200 40308
+"GET /api/ai/analysis/ HTTP/1.1" 200 40308
+"GET /dashboard/ HTTP/1.1" 200 40866
+"GET / HTTP/1.1" 200 37804
+"GET /settings/ HTTP/1.1" 200 53760
+"POST /settings/ HTTP/1.1" 302 0
+"GET /settings/ HTTP/1.1" 200 54190
+C:\Users\rapha\PycharmProjects\fitwave_project\accounts\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37804
+"GET / HTTP/1.1" 200 37804
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /workouts/ HTTP/1.1" 200 33096
+"GET /settings/ HTTP/1.1" 200 53760
+"GET /dashboard/ HTTP/1.1" 200 40866
+"GET /settings/ HTTP/1.1" 200 53760
+"GET /workouts/ HTTP/1.1" 200 33096
+"GET /api/ai/analysis/ HTTP/1.1" 200 40308
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /settings/ HTTP/1.1" 200 53760
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /api/ai/analysis/ HTTP/1.1" 200 40308
+"GET /dashboard/ HTTP/1.1" 200 40866
+"GET /api/ai/analysis/ HTTP/1.1" 200 40308
+"POST /api/ai/upload-photo/ HTTP/1.1" 200 162
+"GET /api/ai/analysis/ HTTP/1.1" 200 40316
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_1hwpavI.jpg HTTP/1.1" 200 14435
+"POST /api/ai/upload-photo/ HTTP/1.1" 200 156
+"GET /api/ai/analysis/ HTTP/1.1" 200 40310
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_1hwpavI.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 200 5202
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 746
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 206
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 826
+"GET /dashboard/ HTTP/1.1" 200 41037
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /dashboard/ HTTP/1.1" 200 41037
+"GET /api/ai/analysis/ HTTP/1.1" 200 40310
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_1hwpavI.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET / HTTP/1.1" 200 37804
+C:\Users\rapha\PycharmProjects\fitwave_project\ai_analysis\models.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 41037
+"GET /settings/ HTTP/1.1" 200 53760
+"GET /workouts/ HTTP/1.1" 200 33096
+"GET / HTTP/1.1" 200 37804
+"GET /workouts/ HTTP/1.1" 200 33096
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /api/ai/analysis/ HTTP/1.1" 200 40310
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_1hwpavI.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"GET /dashboard/ HTTP/1.1" 200 41037
+"GET /accounts/profile/ HTTP/1.1" 200 32199
+"GET /settings/ HTTP/1.1" 200 53760
+"GET / HTTP/1.1" 200 37804
+"GET /api/ai/analysis/ HTTP/1.1" 200 40310
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_1hwpavI.jpg HTTP/1.1" 304 0
+"GET /media/photos/2025/09/20/photo_2025-09-19_14-48-50_2.jpg HTTP/1.1" 304 0
+"POST /api/ai/analyze-posture/ HTTP/1.1" 201 746
+"POST /api/ai/analyze-body/ HTTP/1.1" 201 206
+"POST /api/ai/workout-plan/ HTTP/1.1" 201 826
+"GET /dashboard/ HTTP/1.1" 200 41026
+"GET /workouts/ HTTP/1.1" 200 33096
+"GET /nutrition/ HTTP/1.1" 200 44253
+"GET /api/ai/analysis/ HTTP/1.1" 200 40310
+"GET /dashboard/ HTTP/1.1" 200 41026
+"GET /accounts/profile/ HTTP/1.1" 200 32199
+Not Found: /api/auth/weight-log/
+"POST /api/auth/weight-log/ HTTP/1.1" 404 4372
+"GET /api/ai/analysis/ HTTP/1.1" 200 40310
+"GET /dashboard/ HTTP/1.1" 200 41026
+"GET /workouts/ HTTP/1.1" 200 33096
+"GET /accounts/profile/ HTTP/1.1" 200 32199
+"GET / HTTP/1.1" 200 37804

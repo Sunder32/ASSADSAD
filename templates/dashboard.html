@@ -1,0 +1,444 @@
+{% extends 'base.html' %}
+
+{% block title %}Дашборд - FitWave AI{% endblock %}
+
+{% block extra_css %}
+<style>
+    .stat-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: var(--primary); /* Fallback для браузеров без поддержки gradient text */
+    }
+
+    .stat-label {
+        color: var(--text) !important;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    .stat-description {
+        color: var(--muted) !important;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+
+    /* Принудительные стили для темной темы */
+    [data-theme="dark"] .stat-label,
+    [data-theme="dark"] .stat-card .text-muted {
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .stat-description,
+    [data-theme="dark"] .stat-card .small {
+        color: #cbd5e1 !important;
+    }
+    
+    .recommendation-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.2s;
+    }
+    
+    .recommendation-card:hover {
+        transform: translateX(4px);
+        border-color: var(--primary);
+    }
+    
+    .priority-high {
+        border-left: 4px solid var(--danger);
+    }
+    
+    .priority-medium {
+        border-left: 4px solid var(--warning);
+    }
+    
+    .priority-low {
+        border-left: 4px solid var(--success);
+    }
+    
+    .analysis-preview {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+    }
+    
+    .posture-score {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: white;
+    }
+    
+    .score-excellent { background: linear-gradient(135deg, var(--success), #00ff00); }
+    .score-good { background: linear-gradient(135deg, #88aa00, #aaff00); }
+    .score-fair { background: linear-gradient(135deg, var(--warning), #ffff00); }
+    .score-poor { background: linear-gradient(135deg, #aa4400, #ff6600); }
+    .score-bad { background: linear-gradient(135deg, var(--danger), #ff0000); }
+    
+    .action-btn {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem;
+        text-decoration: none;
+        color: var(--text);
+        transition: all 0.2s;
+        text-align: center;
+    }
+    
+    .action-btn:hover {
+        color: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h2 mb-1">Добро пожаловать{% if user.first_name %}, {{ user.first_name }}{% endif %}!</h1>
+            <p class="text-muted mb-0">Ваш персональный фитнес-дашборд</p>
+        </div>
+        <div class="col-auto">
+            <div class="text-end">
+                <div class="small text-muted">Последний визит</div>
+                <div class="fw-bold">{{ user.last_login|date:"d.m.Y H:i"|default:"Первый раз" }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                {% if user.userprofile %}
+                    <div class="stat-value">{{ user.userprofile.bmi|floatformat:1 }}</div>
+                    <div class="stat-label">BMI</div>
+                    <div class="stat-description">
+                        {% if user.userprofile.bmi < 18.5 %}
+                            Недостаточный
+                        {% elif user.userprofile.bmi < 25 %}
+                            Нормальный
+                        {% elif user.userprofile.bmi < 30 %}
+                            Избыточный
+                        {% else %}
+                            Ожирение
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="stat-value">—</div>
+                    <div class="stat-label">BMI</div>
+                    <div class="stat-description">Профиль не заполнен</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                {% if user.userprofile %}
+                    <div class="stat-value">{{ user.userprofile.tdee }}</div>
+                    <div class="stat-label">TDEE ккал</div>
+                    <div class="stat-description">Суточная потребность</div>
+                {% else %}
+                    <div class="stat-value">—</div>
+                    <div class="stat-label">TDEE ккал</div>
+                    <div class="stat-description">Нет данных</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                {% if latest_posture %}
+                    <div class="stat-value">{{ latest_posture.posture_score|floatformat:1 }}</div>
+                    <div class="stat-label">Осанка</div>
+                    <div class="stat-description">Из 10 баллов</div>
+                {% else %}
+                    <div class="stat-value">—</div>
+                    <div class="stat-label">Осанка</div>
+                    <div class="stat-description">Нет данных</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+                <div class="stat-value">{{ active_recommendations.count|default:"0" }}</div>
+                <div class="stat-label">Активных задач</div>
+                <div class="stat-description">Рекомендации ИИ</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-lg-8">
+            <!-- Latest Analysis -->
+            {% if has_analyses %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Последний анализ</h5>
+                </div>
+                <div class="card-body">
+                    {% if latest_posture %}
+                    <div class="row align-items-center mb-3">
+                        <div class="col-auto">
+                            <div class="posture-score
+                                {% if latest_posture.posture_score >= 8 %}score-excellent
+                                {% elif latest_posture.posture_score >= 7 %}score-good
+                                {% elif latest_posture.posture_score >= 5 %}score-fair
+                                {% elif latest_posture.posture_score >= 3 %}score-poor
+                                {% else %}score-bad{% endif %}">
+                                {{ latest_posture.posture_score|floatformat:1 }}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <h6 class="mb-1">Анализ осанки</h6>
+                            <p class="text-muted mb-0">Проведен {{ latest_posture.created_at|date:"d.m.Y" }}</p>
+                            <div class="mt-2">
+                                {% if latest_posture.has_shoulder_imbalance %}
+                                    <span class="badge bg-warning me-1">Дисбаланс плеч</span>
+                                {% endif %}
+                                {% if latest_posture.has_hip_imbalance %}
+                                    <span class="badge bg-warning me-1">Дисбаланс таза</span>
+                                {% endif %}
+                                {% if latest_posture.has_knee_valgus %}
+                                    <span class="badge bg-warning me-1">Вальгус колен</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if latest_body_analysis %}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="analysis-preview">
+                                <div class="h6">Жировая масса</div>
+                                <div class="h4 text-primary">{{ latest_body_analysis.estimated_body_fat|floatformat:1 }}%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="analysis-preview">
+                                <div class="h6">Мышечная масса</div>
+                                <div class="h4 text-success">{{ latest_body_analysis.estimated_muscle_mass|floatformat:1 }}%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="analysis-preview">
+                                <div class="h6">Тип фигуры</div>
+                                <div class="h6 text-info">{{ latest_body_analysis.body_shape_type|capfirst }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="text-end mt-3">
+                        <a href="{% url 'ai_analysis:analysis' %}" class="btn btn-outline-primary">
+                            Новый анализ
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <!-- No Analysis Yet -->
+            <div class="card mb-4">
+                <div class="card-body text-center py-5">
+                    <i class="fas fa-camera fa-3x text-muted mb-3"></i>
+                    <h5>Начните с анализа</h5>
+                    <p class="text-muted">Загрузите фото для получения персональных рекомендаций от ИИ</p>
+                    <a href="{% url 'ai_analysis:analysis' %}" class="btn btn-primary">
+                        <i class="fas fa-camera me-2"></i>
+                        Сделать первый анализ
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Progress Chart Placeholder -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Прогресс за месяц</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="progressChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-lg-4">
+            <!-- Active Recommendations -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Активные рекомендации</h5>
+                </div>
+                <div class="card-body">
+                    {% if active_recommendations %}
+                        {% for rec in active_recommendations %}
+                        <div class="recommendation-card priority-{{ rec.priority }}">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">{{ rec.title }}</h6>
+                                    <p class="small text-muted mb-2">{{ rec.description|truncatechars:80 }}</p>
+                                    <span class="badge bg-secondary">{{ rec.get_category_display }}</span>
+                                </div>
+                                <button class="btn btn-sm btn-outline-success"
+                                        onclick="markCompleted({{ rec.id }})">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <div class="text-center mt-3">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Все рекомендации</a>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4">
+                            <i class="fas fa-tasks fa-2x text-muted mb-2"></i>
+                            <p class="text-muted mb-0">Нет активных рекомендаций</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Быстрые действия</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'ai_analysis:analysis' %}" class="action-btn">
+                            <i class="fas fa-camera fa-lg mb-2 d-block"></i>
+                            Анализ фото
+                        </a>
+                        <a href="{% url 'nutrition' %}" class="action-btn">
+                            <i class="fas fa-utensils fa-lg mb-2 d-block"></i>
+                            Дневник питания
+                        </a>
+                        <a href="{% url 'workouts' %}" class="action-btn">
+                            <i class="fas fa-dumbbell fa-lg mb-2 d-block"></i>
+                            Тренировки
+                        </a>
+                        <a href="{% url 'settings' %}" class="action-btn">
+                            <i class="fas fa-chart-line fa-lg mb-2 d-block"></i>
+                            Прогресс
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Progress chart
+    const ctx = document.getElementById('progressChart');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1 нед назад', '2 нед назад', '3 нед назад', '4 нед назад'],
+                datasets: [{
+                    label: 'Вес (кг)',
+                    data: [75, 74.5, 74, 73.5],
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'var(--text)'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            color: 'var(--border)'
+                        },
+                        ticks: {
+                            color: 'var(--text)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'var(--border)'
+                        },
+                        ticks: {
+                            color: 'var(--text)'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Mark recommendation as completed
+    async function markCompleted(recId) {
+        try {
+            // Поскольку у нас пока нет реального API, просто скрываем элемент
+            const recommendationCard = event.target.closest('.recommendation-card');
+            if (recommendationCard) {
+                recommendationCard.style.opacity = '0.5';
+                recommendationCard.style.pointerEvents = 'none';
+                
+                // Добавляем отметку о выполнении
+                const badge = document.createElement('span');
+                badge.className = 'badge bg-success ms-2';
+                badge.textContent = 'Выполнено';
+                recommendationCard.querySelector('h6').appendChild(badge);
+            }
+            
+            // В будущем здесь будет реальный API вызов:
+            // const response = await axios.post(`/api/ai/recommendations/${recId}/complete/`);
+        } catch (error) {
+            console.error('Error marking recommendation as completed:', error);
+        }
+    }
+
+    // Load fresh data on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Dashboard loaded');
+    });
+</script>
+{% endblock %}

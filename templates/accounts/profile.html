@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+
+{% block title %}Мой профиль - FitWave AI{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <div class="rounded-circle d-inline-flex align-items-center justify-content-center"
+                             style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--secondary));">
+                            <i class="fas fa-user fa-2x text-white"></i>
+                        </div>
+                    </div>
+                    <h5>{{ user.first_name }} {{ user.last_name }}</h5>
+                    <p class="text-muted">{{ user.email }}</p>
+
+                    {% if profile.goal %}
+                    <span class="badge bg-primary">{{ profile.get_goal_display }}</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6>Быстрая статистика</h6>
+                    <div class="row text-center">
+                        <div class="col-6 mb-2">
+                            <div class="h6 mb-0">{{ profile.bmi|floatformat:1|default:"—" }}</div>
+                            <small class="text-muted">BMI</small>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <div class="h6 mb-0">{{ profile.tdee|default:"—" }}</div>
+                            <small class="text-muted">TDEE</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Личная информация</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Возраст</label>
+                                <input type="number" class="form-control" name="age"
+                                       value="{{ profile.age|default:'' }}" min="10" max="100">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Пол</label>
+                                <select class="form-control" name="gender">
+                                    <option value="">Выберите</option>
+                                    <option value="M" {% if profile.gender == 'M' %}selected{% endif %}>Мужской</option>
+                                    <option value="F" {% if profile.gender == 'F' %}selected{% endif %}>Женский</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Рост (см)</label>
+                                <input type="number" class="form-control" name="height"
+                                       value="{{ profile.height|default:'' }}" min="100" max="250">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Текущий вес (кг)</label>
+                                <input type="number" class="form-control" name="current_weight"
+                                       value="{{ profile.current_weight|default:'' }}" min="30" max="300" step="0.1">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Целевой вес (кг)</label>
+                                <input type="number" class="form-control" name="target_weight"
+                                       value="{{ profile.target_weight|default:'' }}" min="30" max="300" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Цель</label>
+                                <select class="form-control" name="goal">
+                                    <option value="lose" {% if profile.goal == 'lose' %}selected{% endif %}>Снижение веса</option>
+                                    <option value="maintain" {% if profile.goal == 'maintain' %}selected{% endif %}>Поддержание веса</option>
+                                    <option value="gain" {% if profile.goal == 'gain' %}selected{% endif %}>Набор массы</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Уровень активности</label>
+                                <select class="form-control" name="activity_level">
+                                    <option value="1.2" {% if profile.activity_level == 1.2 %}selected{% endif %}>Минимальная (офис)</option>
+                                    <option value="1.375" {% if profile.activity_level == 1.375 %}selected{% endif %}>1-3 тренировки/неделя</option>
+                                    <option value="1.55" {% if profile.activity_level == 1.55 %}selected{% endif %}>3-5 тренировок/неделя</option>
+                                    <option value="1.725" {% if profile.activity_level == 1.725 %}selected{% endif %}>6-7 тренировок/неделя</option>
+                                    <option value="1.9" {% if profile.activity_level == 1.9 %}selected{% endif %}>Очень высокая активность</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Пищевые предпочтения</label>
+                            <textarea class="form-control" name="dietary_preferences" rows="3"
+                                      placeholder="Например: вегетарианство, кето-диета, без глютена">{{ profile.dietary_preferences|default:'' }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Аллергии</label>
+                            <input type="text" class="form-control" name="allergies"
+                                   value="{{ profile.allergies|default:'' }}"
+                                   placeholder="Перечислите через запятую">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-2"></i>
+                            Сохранить изменения
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Последние взвешивания</h6>
+                        </div>
+                        <div class="card-body">
+                            {% if recent_weights %}
+                                {% for weight in recent_weights %}
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span>{{ weight.date_recorded|date:"d.m.Y" }}</span>
+                                    <strong>{{ weight.weight }} кг</strong>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <p class="text-muted">Нет записей о весе</p>
+                            {% endif %}
+
+                            <hr>
+                            <form id="quickWeightForm" class="d-flex gap-2">
+                                {% csrf_token %}
+                                <input type="number" class="form-control form-control-sm"
+                                       id="quickWeight" placeholder="Вес" step="0.1" required>
+                                <button type="submit" class="btn btn-sm btn-outline-primary">
+                                    Добавить
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Последние измерения</h6>
+                        </div>
+                        <div class="card-body">
+                            {% if recent_measurements %}
+                                {% for measurement in recent_measurements %}
+                                <div class="mb-2">
+                                    <small class="text-muted">{{ measurement.date_recorded|date:"d.m.Y" }}</small>
+                                    <div class="row">
+                                        {% if measurement.waist %}
+                                        <div class="col-4">
+                                            <small>Талия: {{ measurement.waist }}см</small>
+                                        </div>
+                                        {% endif %}
+                                        {% if measurement.hips %}
+                                        <div class="col-4">
+                                            <small>Бедра: {{ measurement.hips }}см</small>
+                                        </div>
+                                        {% endif %}
+                                        {% if measurement.whr %}
+                                        <div class="col-4">
+                                            <small>WHR: {{ measurement.whr }}</small>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <hr>
+                                {% endfor %}
+                            {% else %}
+                                <p class="text-muted">Нет измерений</p>
+                            {% endif %}
+
+                            <a href="{% url 'ai_analysis:analysis' %}" class="btn btn-sm btn-outline-primary">
+                                Добавить измерения
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('quickWeightForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const weight = document.getElementById('quickWeight').value;
+        if (!weight) return;
+
+        try {
+            const response = await axios.post('/api/auth/weight-log/', {
+                weight: parseFloat(weight)
+            });
+
+            if (response.status === 201) {
+                location.reload();
+            }
+        } catch (error) {
+            alert('Ошибка при добавлении веса');
+            console.error(error);
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,455 @@
+{% extends 'base.html' %}
+
+{% block title %}Анализ фото - FitWave AI{% endblock %}
+
+{% block extra_css %}
+<style>
+    .photo-upload-zone {
+        border: 2px dashed var(--border);
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        background: var(--card);
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .photo-upload-zone:hover {
+        border-color: var(--accent2);
+        background: rgba(0, 255, 208, 0.05);
+    }
+    
+    .photo-upload-zone.dragover {
+        border-color: var(--accent1);
+        background: rgba(106, 92, 255, 0.1);
+    }
+    
+    .photo-preview {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .analysis-results {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+    }
+    
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+
+    .metric-card {
+        background: var(--input);
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .metric-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent2);
+    }
+
+    .recommendation-item {
+        background: var(--input);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        border-left: 4px solid var(--accent2);
+    }
+
+    .loading-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid var(--border);
+        border-top: 3px solid var(--accent2);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .measurements-input {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h1 class="h2 mb-1">Анализ фотографий</h1>
+                    <p class="text-muted mb-0">ИИ-анализ осанки и состава тела</p>
+                </div>
+                <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Вернуться
+                    </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Photo Upload Section -->
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">1. Загрузите фотографии</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Фото спереди</label>
+                            <div class="photo-upload-zone" id="frontUpload" data-type="front">
+                                {% if front_photo and front_photo.image %}
+                                    <img src="{{ front_photo.image.url }}" class="photo-preview" alt="Front photo">
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="removePhoto('front')">
+                                        Удалить фото
+                                    </button>
+                                {% else %}
+                                    <i class="fas fa-camera fa-3x text-muted mb-2"></i>
+                                    <p class="text-muted mb-0">Нажмите или перетащите фото</p>
+                                    <small class="text-muted">Встаньте прямо лицом к камере</small>
+                                {% endif %}
+                                <input type="file" id="frontInput" accept="image/*" capture="environment" style="display: none;">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Фото сзади</label>
+                            <div class="photo-upload-zone" id="backUpload" data-type="back">
+                                {% if back_photo and back_photo.image %}
+                                    <img src="{{ back_photo.image.url }}" class="photo-preview" alt="Back photo">
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="removePhoto('back')">
+                                        Удалить фото
+                                    </button>
+                                {% else %}
+                                    <i class="fas fa-camera fa-3x text-muted mb-2"></i>
+                                    <p class="text-muted mb-0">Нажмите или перетащите фото</p>
+                                    <small class="text-muted">Встаньте спиной к камере</small>
+                                {% endif %}
+                                <input type="file" id="backInput" accept="image/*" capture="environment" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label class="form-label">Фото с весов (опционально)</label>
+                        <div class="photo-upload-zone" id="scaleUpload" data-type="scale" style="min-height: 120px;">
+                            {% if scale_photo and scale_photo.image %}
+                                <img src="{{ scale_photo.image.url }}" class="photo-preview" alt="Scale photo" style="max-height: 150px;">
+                                <button class="btn btn-sm btn-outline-secondary" onclick="removePhoto('scale')">
+                                    Удалить фото
+                                </button>
+                            {% else %}
+                                <i class="fas fa-weight fa-2x text-muted mb-2"></i>
+                                <p class="text-muted mb-0">Фото показаний весов</p>
+                            {% endif %}
+                            <input type="file" id="scaleInput" accept="image/*" capture="environment" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Measurements Input -->
+            <div class="measurements-input">
+                <h5 class="mb-3">2. Дополнительные измерения</h5>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Талия (см)</label>
+                        <input type="number" class="form-control" id="waistInput" placeholder="Введите объем талии">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Бедра (см)</label>
+                        <input type="number" class="form-control" id="hipsInput" placeholder="Введите объем бедер">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Текущий вес (кг)</label>
+                        <input type="number" class="form-control" id="weightInput"
+                               value="{{ user.userprofile.current_weight|default:'' }}" step="0.1">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Шаги сегодня</label>
+                        <input type="number" class="form-control" id="stepsInput" placeholder="Количество шагов">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Button -->
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg" id="analyzeBtn" onclick="startAnalysis()">
+                    <i class="fas fa-magic me-2"></i>
+                    Начать анализ
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="col-lg-4">
+            <div id="analysisResults" style="display: none;">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Результаты анализа</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="postureResults"></div>
+                        <div id="bodyResults"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Рекомендации ИИ</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="recommendationsResults"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="analysisPlaceholder">
+                <div class="card">
+                    <div class="card-body text-center py-5">
+                        <i class="fas fa-chart-line fa-3x text-muted mb-3"></i>
+                        <h6>Результаты анализа</h6>
+                        <p class="text-muted small">Загрузите фото и нажмите "Начать анализ" для получения персональных рекомендаций</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="text-center">
+        <div class="spinner mb-3"></div>
+        <h5>Анализируем ваши фотографии...</h5>
+        <p class="text-muted">ИИ обрабатывает изображения и создает персональные рекомендации</p>
+        <div class="progress" style="width: 300px;">
+            <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        </div>
+        <small class="text-muted" id="progressText">Инициализация...</small>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Photo upload handling
+    document.addEventListener('DOMContentLoaded', function() {
+        setupPhotoUploads();
+    });
+
+    function setupPhotoUploads() {
+        const uploads = ['front', 'back', 'scale'];
+
+        uploads.forEach(type => {
+            const zone = document.getElementById(`${type}Upload`);
+            const input = document.getElementById(`${type}Input`);
+
+            // Click handler
+            zone.addEventListener('click', () => input.click());
+
+            // File input change
+            input.addEventListener('change', (e) => {
+                if (e.target.files[0]) {
+                    uploadPhoto(e.target.files[0], type);
+                }
+            });
+
+            // Drag and drop
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('dragover');
+            });
+
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('dragover');
+            });
+
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('dragover');
+
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    uploadPhoto(file, type);
+                }
+            });
+        });
+    }
+
+    async function uploadPhoto(file, type) {
+        const formData = new FormData();
+        formData.append('image', file);  // Отправляем файл напрямую
+        formData.append('photo_type', type);
+
+        try {
+            const response = await axios.post('/api/ai/upload-photo/', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            if (response.status === 201 || response.status === 200) {
+                location.reload();
+            }
+        } catch (error) {
+            console.error('Upload error:', error);
+            alert('Ошибка загрузки фото: ' + (error.response?.data?.error || 'Попробуйте еще раз.'));
+        }
+    }
+
+    async function removePhoto(type) {
+        console.log('Remove photo:', type);
+        // Для реализации удаления нужен дополнительный API endpoint
+    }
+
+    async function startAnalysis() {
+        const overlay = document.getElementById('loadingOverlay');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        overlay.style.display = 'flex';
+
+        try {
+            updateProgress(20, 'Загрузка моделей ИИ...');
+
+            // Start posture analysis
+            const postureResponse = await axios.post('/api/ai/analyze-posture/');
+            updateProgress(60, 'Анализ осанки завершен...');
+
+            // Start body composition analysis
+            const bodyResponse = await axios.post('/api/ai/analyze-body/');
+            updateProgress(80, 'Анализ состава тела завершен...');
+
+            // Generate workout plan
+            const workoutResponse = await axios.post('/api/ai/workout-plan/');
+            updateProgress(100, 'Создание персональных рекомендаций...');
+
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                displayResults(postureResponse.data, bodyResponse.data, workoutResponse.data);
+            }, 1000);
+
+        } catch (error) {
+            console.error('Analysis error:', error);
+            overlay.style.display = 'none';
+            alert('Ошибка при анализе. Проверьте, что загружены фотографии.');
+        }
+    }
+
+    function updateProgress(percent, text) {
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        progressBar.style.width = percent + '%';
+        progressText.textContent = text;
+    }
+
+    function displayResults(postureData, bodyData, workoutData) {
+        const placeholder = document.getElementById('analysisPlaceholder');
+        const results = document.getElementById('analysisResults');
+        const postureResults = document.getElementById('postureResults');
+        const bodyResults = document.getElementById('bodyResults');
+        const recommendationsResults = document.getElementById('recommendationsResults');
+
+        placeholder.style.display = 'none';
+        results.style.display = 'block';
+
+        // Display posture analysis
+        if (postureData.analysis) {
+            const analysis = postureData.analysis;
+            postureResults.innerHTML = `
+                <h6>Анализ осанки</h6>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">${analysis.posture_score || 'N/A'}</div>
+                        <small>Оценка осанки</small>
+                    </div>
+                    ${analysis.shoulder_slope_degrees ? `
+                        <div class="metric-card">
+                            <div class="metric-value">${Math.abs(analysis.shoulder_slope_degrees).toFixed(1)}°</div>
+                            <small>Наклон плеч</small>
+                        </div>
+                    ` : ''}
+                    ${analysis.knee_valgus_angle ? `
+                        <div class="metric-card">
+                            <div class="metric-value">${analysis.knee_valgus_angle.toFixed(1)}°</div>
+                            <small>Вальгус колен</small>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // Display body composition
+        if (bodyData.analysis) {
+            const body = bodyData.analysis;
+            bodyResults.innerHTML = `
+                <h6 class="mt-3">Состав тела</h6>
+                <div class="metrics-grid">
+                    ${body.estimated_body_fat ? `
+                        <div class="metric-card">
+                            <div class="metric-value">${body.estimated_body_fat}%</div>
+                            <small>Жировая масса</small>
+                        </div>
+                    ` : ''}
+                    ${body.estimated_muscle_mass ? `
+                        <div class="metric-card">
+                            <div class="metric-value">${body.estimated_muscle_mass}%</div>
+                            <small>Мышечная масса</small>
+                        </div>
+                    ` : ''}
+                    ${body.body_shape_type ? `
+                        <div class="metric-card">
+                            <div class="metric-value">${body.body_shape_type}</div>
+                            <small>Тип фигуры</small>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        // Display recommendations
+        recommendationsResults.innerHTML = `
+            <div class="recommendation-item">
+                <h6>Персональные рекомендации созданы</h6>
+                <p class="mb-0">На основе анализа создано ${postureData.recommendations_count || 0} рекомендаций. Просмотрите их в разделе "Дашборд".</p>
+            </div>
+        `;
+    }
+</script>
+{% endblock %}

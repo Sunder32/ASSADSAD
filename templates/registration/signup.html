@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация - FitWave AI{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h2>Создать аккаунт</h2>
+                        <p class="text-muted">Присоединяйтесь к FitWave AI</p>
+                    </div>
+
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
+                    <form method="post" id="signupForm">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="first_name" class="form-label">Имя *</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name"
+                                       placeholder="Ваше имя" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="last_name" class="form-label">Фамилия</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name"
+                                       placeholder="Ваша фамилия">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password1" class="form-label">Пароль *</label>
+                            <input type="password" class="form-control" id="password1" name="password1"
+                                   placeholder="Создайте надежный пароль" required>
+                            <div class="form-text">Минимум 8 символов</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password2" class="form-label">Подтвердите пароль *</label>
+                            <input type="password" class="form-control" id="password2" name="password2"
+                                   placeholder="Повторите пароль" required>
+                        </div>
+
+                        <!-- Базовые данные профиля -->
+                        <hr class="my-4">
+                        <h6 class="mb-3">Основная информация (можно заполнить позже)</h6>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="age" class="form-label">Возраст</label>
+                                <input type="number" class="form-control" id="age" name="age"
+                                       min="10" max="100" placeholder="25">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="gender" class="form-label">Пол</label>
+                                <select class="form-control" id="gender" name="gender">
+                                    <option value="">Выберите</option>
+                                    <option value="M">Мужской</option>
+                                    <option value="F">Женский</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="height" class="form-label">Рост (см)</label>
+                                <input type="number" class="form-control" id="height" name="height"
+                                       min="100" max="250" placeholder="175">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="current_weight" class="form-label">Вес (кг)</label>
+                                <input type="number" class="form-control" id="current_weight" name="current_weight"
+                                       min="30" max="300" step="0.1" placeholder="70">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="goal" class="form-label">Цель</label>
+                            <select class="form-control" id="goal" name="goal">
+                                <option value="lose">Снижение веса</option>
+                                <option value="maintain">Поддержание веса</option>
+                                <option value="gain">Набор массы</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" class="form-check-input" id="agree_terms" required>
+                            <label class="form-check-label" for="agree_terms">
+                                Я согласен с <a href="#" class="text-decoration-none">условиями использования</a>
+                                и <a href="#" class="text-decoration-none">политикой конфиденциальности</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="fas fa-user-plus me-2"></i>
+                            Создать аккаунт
+                        </button>
+
+                        <div class="text-center">
+                            <p class="mb-0">
+                                Уже есть аккаунт?
+                                <a href="{% url 'login' %}" class="text-decoration-none">
+                                    Войти
+                                </a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+        const password1 = document.getElementById('password1').value;
+        const password2 = document.getElementById('password2').value;
+
+        if (password1 !== password2) {
+            e.preventDefault();
+            alert('Пароли не совпадают!');
+            return;
+        }
+
+        if (password1.length < 8) {
+            e.preventDefault();
+            alert('Пароль должен содержать минимум 8 символов!');
+            return;
+        }
+    });
+</script>
+{% endblock %}

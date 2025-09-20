@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Тренировки - FitWave AI{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h2 mb-1">Тренировки</h1>
+            <p class="text-muted mb-0">Здесь будут ваши персональные тренировки</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        {% for workout in workouts %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <div class="mb-3">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                                 style="width: 50px; height: 50px; background: var(--gradient-primary);">
+                                <i class="fas fa-dumbbell text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0">{{ workout.name }}</h5>
+                                <small class="text-muted">{{ workout.duration }}</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between text-muted small mb-2">
+                            <span>Упражнения: {{ workout.exercises|default:"8" }}</span>
+                            <span>Уровень: Средний</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto">
+                        <button class="btn btn-primary w-100" onclick="startWorkout('{{ workout.name }}')">
+                            <i class="fas fa-play me-2"></i>Начать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Карточка для создания новой тренировки -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 border-dashed" style="border-style: dashed !important;">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                         style="width: 60px; height: 60px; background: var(--input); border: 2px dashed var(--border);">
+                        <i class="fas fa-plus fa-lg text-muted"></i>
+                    </div>
+                    <h6 class="text-muted mb-2">Создать тренировку</h6>
+                    <p class="small text-muted mb-3">Создайте персональную тренировку с ИИ</p>
+                    <button class="btn btn-outline-primary">
+                        <i class="fas fa-magic me-2"></i>Создать с ИИ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статистика тренировок -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Статистика тренировок</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-3">
+                            <div class="h3 text-primary mb-1">0</div>
+                            <div class="text-muted">Завершено тренировок</div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="h3 text-success mb-1">0</div>
+                            <div class="text-muted">Минут тренировок</div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="h3 text-warning mb-1">0</div>
+                            <div class="text-muted">Сожжено калорий</div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="h3 text-info mb-1">0</div>
+                            <div class="text-muted">Дней подряд</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function startWorkout(workoutName) {
+        // Здесь будет логика запуска тренировки
+        alert(`Запуск тренировки: ${workoutName}\n\nФункционал в разработке`);
+    }
+</script>
+{% endblock %}
